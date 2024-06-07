@@ -10,27 +10,39 @@ import XCTest
 
 class CheckListTests: XCTestCase {
 
+    var objCalculator: Calculator?
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        //Initialize
+        objCalculator = Calculator()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        //deinit
+        objCalculator = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testSum() throws {
+        let result = objCalculator?.sum(a: 1.50, b: 1.00)
+        XCTAssertEqual(result, 2.50)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSub() throws {
+        let result = objCalculator?.sub(a: 1.50, b: 1.00)
+        XCTAssertEqual(result, 0.50)
     }
-
+    
+    func testmul() throws {
+        let result = objCalculator?.mul(a: 1.50, b: 1.00)
+        XCTAssertEqual(result, 1.50)
+    }
+    
+    func testdiv() throws {
+        let result = objCalculator?.div(a: 1.50, b: 1.00)
+        XCTAssertEqual(result, 1.50)
+    }
+    
+    func testpower() throws {
+        let result = objCalculator?.power(a: 1.50)
+        XCTAssertEqual(result, 2.25)
+    }
 }
